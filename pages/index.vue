@@ -2,7 +2,7 @@
   <div class="container">
     <div>
       <logo />
-      <h1 class="title">
+      <h1 class="title iconfont iconsearch">
         haotu
       </h1>
       <h2 class="subtitle">

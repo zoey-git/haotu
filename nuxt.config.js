@@ -24,7 +24,8 @@ module.exports = {
   */
   css: [
     "@/assets/styles/main.scss",
-    "@/assets/styles/iconfont.scss"
+    "@/assets/styles/iconfont.scss",
+    "@/assets/styles/var.scss"
   ],
   /*
   ** Plugins to load before mounting the App
@@ -40,7 +41,11 @@ module.exports = {
   ** Nuxt.js modules
   */
   modules: [
+    '@nuxtjs/style-resources'
   ],
+  styleResources: {
+    scss: "./assets/styles/var.scss"
+  },
   /*
   ** Build configuration
   */

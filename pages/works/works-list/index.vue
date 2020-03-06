@@ -4,7 +4,7 @@
             <div v-for="(item) in imgList" :key="item">
                 <img :src="item" alt="">
             </div>
-            <img src="http://q6pmg0ho4.bkt.clouddn.com/%E7%94%B5%E6%A2%AF%E5%81%B6%E9%81%87%E5%A4%B1%E6%81%8B%E9%86%89%E9%85%92%E5%A5%B3%20%E5%A5%B3%E7%A5%9E%E6%9D%A8%E7%B4%AB%E5%AB%A3%E6%BB%A1%E8%B6%B3%E4%BD%A0%E7%9A%84%E5%B0%BE%E9%9A%8F%E5%B9%BB%E6%83%B32020-03-03_image.png" alt="">
+            <img src="https://drscdn.500px.org/photo/1011820369/q%3D80_h%3D600/v2?sig=68fd6c8ce336ee0a13f07b0eb5ce07a4a906761f9ce7b631f0148f39f302d9c7" alt="">
         </div>
         <Loding v-if="false" />
     </div>

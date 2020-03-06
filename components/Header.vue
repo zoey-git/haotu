@@ -30,6 +30,7 @@ export default {
         align-items: center;
         padding: 0 60px;
         height: 68px;
+        background: #fff;
         .logo_wrap {
             display: flex;
             align-items: center;

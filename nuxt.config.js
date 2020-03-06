@@ -15,6 +15,15 @@ module.exports = {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
+  proxy: {
+    '/api': {
+      target: 'http://localhost:3000',
+      pathRewrite: {
+        '^/api': '/'
+      },
+      changeOrigin: true
+    }
+  },
   /*
   ** Customize the progress-bar color
   */
@@ -31,6 +40,7 @@ module.exports = {
   ** Plugins to load before mounting the App
   */
   plugins: [
+    "~/plugins/axios"
   ],
   /*
   ** Nuxt.js dev-modules
@@ -41,7 +51,8 @@ module.exports = {
   ** Nuxt.js modules
   */
   modules: [
-    '@nuxtjs/style-resources'
+    '@nuxtjs/style-resources',
+    '@nuxtjs/axios'
   ],
   styleResources: {
     scss: "./assets/styles/var.scss"

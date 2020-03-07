@@ -1,18 +1,25 @@
 <template>
     <div class="header">
         <div class="logo_wrap">
-            <img src="~assets/images/logo.png" alt="">
+            <nuxt-link to="/home">
+                <img src="~assets/images/logo.png" alt="">
+            </nuxt-link>
             <ul>
-                <li>首页</li>
-                <li>发现</li>
-                <li>APP</li>
-                <li>POCO认证</li>
+                <li>
+                    <nuxt-link to="/home">首页</nuxt-link>
+                </li>
+                <li>
+                    <!-- <nuxt-link>发现</nuxt-link> -->
+                </li>
+                <li>
+                    <!-- <nuxt-link>APP</nuxt-link> -->
+                </li>
             </ul>
         </div>
         <div class="operation">
             <div class="search iconfont iconsearch"></div>
-            <div class="register">注册</div>
-            <div class="login">登录</div>
+            <nuxt-link to="/signup" class="register" tag="div">注册</nuxt-link>
+            <nuxt-link to="/login" class="login" tag="div">登录</nuxt-link>
         </div>
     </div>
 </template>
@@ -57,11 +64,13 @@ export default {
             }
             .register {
                 color: #999;
+                cursor: pointer;
             }
             .login {
                 background: $theme-color;
                 color: #fff;
                 padding: 10px 20px;
+                cursor: pointer;
             }
         }
     }

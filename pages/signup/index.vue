@@ -5,22 +5,22 @@
             <h4>注册</h4>
             <div class="username">
                 <label for="username">用户名*</label>
-                <input id="username" type="text">
+                <input id="username" v-model="username" type="text">
             </div>
             <div class="email">
                 <label for="email">邮箱*</label>
-                <input id="email" type="text">
+                <input id="email" v-model="email" type="text">
             </div>
             <div class="password">
                 <label for="password">密码*</label>
-                <input id="password" type="password">
+                <input id="password" v-model="password" type="password">
             </div>
             <div class="affirmpassword">
                 <label for="affirmpassword">确认密码*</label>
-                <input id="affirmpassword" type="password">
+                <input id="affirmpassword" v-model="affirmpassword" type="password">
             </div>
             <div class="">
-                <button>注 册</button>
+                <button @click="signUp">注 册</button>
                 <div class="gologin" @click="goLogin">已有账号？去登录</div>
             </div>
         </div>
@@ -30,11 +30,33 @@
 <script>
 import Header from '@/components/Header'
 export default {
+    data() {
+        return {
+            username: '',
+            password: '',
+            email: '',
+            affirmpassword: ''
+        }
+    },
     methods: {
         goLogin() {
             this.$router.push({
                 path: '/login'
             })
+        },
+        async signUp() {
+            if (this.password !== this.affirmpassword) {
+                return ''
+            }
+            let params = {
+                username: this.username,
+                password: this.password,
+                email: this.email
+            }
+            let res = await this.$axios.post('/api/user/add_user', params)
+            if (res.code === 200) {
+                this.$router.push('/login')
+            }
         }
     },
     components: {

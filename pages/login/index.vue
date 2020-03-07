@@ -5,14 +5,14 @@
             <h4>登录</h4>
             <div class="username">
                 <label for="username">用户名</label>
-                <input id="username" type="text">
+                <input id="username" v-model="username" type="text">
             </div>
             <div class="password">
                 <label for="password">密码</label>
-                <input id="password" type="password">
+                <input id="password" v-model="password" type="password">
             </div>
             <div>
-                <button>登 录</button>
+                <button @click="handleLogin">登 录</button>
                 <div class="gologin" @click="goSignUp">新用户注册</div>
             </div>
         </div>
@@ -22,11 +22,31 @@
 <script>
 import Header from '@/components/Header'
 export default {
+    data() {
+        return {
+            username: '',
+            password: '',
+            isShow: true,
+            msg: ''
+        }
+    },
     methods: {
         goSignUp() {
             this.$router.push({
                 path: '/signup'
             })
+        },
+        async handleLogin() {
+            let params = {
+                username: this.username,
+                password: this.password
+            }
+            let res = await this.$axios.post('/api/user/login', params)
+            if (res.code === 200) {
+                this.$router.push('/home')
+            } else {
+                
+            }
         }
     },
     components: {

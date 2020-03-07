@@ -15,6 +15,9 @@ module.exports = {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
+  axios: {
+    proxy: true // Can be also an object with default options
+  },
   proxy: {
     '/api': {
       target: 'http://localhost:3000',
@@ -40,7 +43,7 @@ module.exports = {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    "~/plugins/axios"
+    '~plugins/axios'
   ],
   /*
   ** Nuxt.js dev-modules
